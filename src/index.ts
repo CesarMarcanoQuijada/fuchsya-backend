@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 import { gql } from 'apollo-server'
-const { ApolloServer } = require('apollo-server-express');
-// const { typeDefs, resolvers } = require('./schema');
+import { ApolloServer } from 'apollo-server-express';
+// import { typeDefs, resolvers } from './graphql/index.ts';
 
 async function startApolloServer() {
   const app = express();
@@ -21,7 +21,7 @@ async function startApolloServer() {
 
   server.applyMiddleware({ app });
 
-  await new Promise(resolve => app.listen({ port: 4000 }, resolve));
+  await new Promise((resolve: any) => app.listen({ port: 4000 }, resolve));
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
   return { server, app };
 }
