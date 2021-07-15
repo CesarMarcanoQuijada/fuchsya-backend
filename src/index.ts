@@ -1,20 +1,15 @@
-import express from 'express';
-import { gql } from 'apollo-server'
-import { ApolloServer } from 'apollo-server-express';
-// import { typeDefs, resolvers } from './graphql/index.ts';
+import express from "express";
+import { ApolloServer } from "apollo-server-express";
+import { typeDefs, Query, Mutation } from './graphql';
+
 
 async function startApolloServer() {
   const app = express();
   const server = new ApolloServer({
-    typeDefs: gql`
-    type Query {
-        ping: String!
-      }
-    `,
+    typeDefs,
     resolvers: {
-        Query: {
-            ping: () => 'pong'
-        }
+      Query,
+      Mutation,
     },
   });
   await server.start();
@@ -26,4 +21,4 @@ async function startApolloServer() {
   return { server, app };
 }
 
-startApolloServer().catch(err => console.error(err))
+startApolloServer().catch((err) => console.error(err));

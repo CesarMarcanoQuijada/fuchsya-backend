@@ -1,0 +1,39 @@
+type Publciation {
+  photo: String!
+  content: String!
+  by: String!
+  timeStamp: String!
+  likedBy: [String]!
+}
+
+type User {
+  uuid: String!
+  email: String!
+  username: String!
+  name: String!
+  surname: String!
+}
+
+type Query {
+  Publciations: [Publciation]!
+}
+
+type Mutation {
+  CurrentSession(
+    token: String!
+  ): User!
+  
+  Register(
+  email: String!
+  username: String
+  name: String!
+  surname: String!
+  password: String!
+  ): String
+
+  Login(
+  email: String!
+  password: String!
+  ): String
+}
+
