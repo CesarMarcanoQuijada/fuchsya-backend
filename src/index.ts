@@ -7,7 +7,6 @@ import { ApolloServer } from "apollo-server-express";
 import { typeDefs, Query, Mutation } from "./graphql";
 import initialize from "./database";
 
-
 async function startApolloServer() {
   const app = express();
   const server = new ApolloServer({

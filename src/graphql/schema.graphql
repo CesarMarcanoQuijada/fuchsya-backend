@@ -6,6 +6,13 @@ type Publciation {
   likedBy: [String]!
 }
 
+type File {
+  id: String!
+  filename: String!
+  mimetype: String!
+  path: String!
+}
+
 type User {
   uuid: String!
   email: String!
@@ -19,21 +26,15 @@ type Query {
 }
 
 type Mutation {
-  CurrentSession(
-    token: String!
-  ): User!
-  
+  CurrentSession(token: String!): User!
+
   Register(
-  email: String!
-  username: String
-  name: String!
-  surname: String!
-  password: String!
+    email: String!
+    username: String!
+    name: String!
+    surname: String!
+    password: String!
   ): String
 
-  Login(
-  email: String!
-  password: String!
-  ): String
+  Login(email: String!, password: String!): String
 }
-
