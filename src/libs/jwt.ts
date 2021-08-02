@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
-import { RegisterInterface } from '../types/RegisterInterface';
+import { AuthInterface } from '../types/AuthInterface';
 
-export async function sign(user: RegisterInterface) {
+export async function sign(user: AuthInterface) {
     const token = await jwt.sign(user, process.env['JWT_TOKEN'] || '')
 
     return token;

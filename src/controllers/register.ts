@@ -1,11 +1,11 @@
 import { User } from "../database/models/user";
 import { sign } from "../libs/jwt";
 import { encrypt } from "../libs/passwordCrypter";
-import { RegisterInterface } from "../types/RegisterInterface";
+import { AuthInterface } from '../types/AuthInterface';
 
 export async function Register(
   _: any,
-  { email, name, password, surname, username }: RegisterInterface
+  { email, name, password, surname, username }: AuthInterface
 ) {
   if (password.length < 8) return "Password too short";
   if (password === "12345678") return "Weak password";
