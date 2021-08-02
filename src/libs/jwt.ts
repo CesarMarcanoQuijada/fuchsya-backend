@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken';
-import { RegisterInterface } from '../graphql/mutations_def';
+import { RegisterInterface } from '../types/RegisterInterface';
 
 export async function sign(user: RegisterInterface) {
     const token = await jwt.sign(user, process.env['JWT_TOKEN'] || '')
