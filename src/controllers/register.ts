@@ -1,7 +1,7 @@
 import { User } from "../database/models/user";
 import { sign } from "../libs/jwt";
 import { encrypt } from "../libs/passwordCrypter";
-import { AuthInterface } from '../types/AuthInterface';
+import { AuthInterface } from "../types/AuthInterface";
 
 export async function Register(
   _: any,
@@ -35,10 +35,11 @@ export async function Register(
   let newUser = {
     ...created,
     id: created._id,
-  }
+  };
 
-  delete newUser._id
-  delete newUser._v
+  delete newUser._id;
+  delete newUser._v;
+  delete newUser.password;
 
   const token = await sign(newUser);
 

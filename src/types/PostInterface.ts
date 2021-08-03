@@ -1,8 +1,9 @@
 export interface PostInterface {
-    by: string,
-    timestamp: string,
+    by?: string,
+    timestamp?: number,
+    token?: string,
     content: string,
-    images: string[],
-    comments: string[],
-    likes: string[],
+    images?: string[],
+    comments?: string[],
+    likes?: string[],
 }

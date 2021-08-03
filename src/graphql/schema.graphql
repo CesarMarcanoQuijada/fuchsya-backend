@@ -36,5 +36,11 @@ type Mutation {
     password: String!
   ): String
 
+  CreatePost(
+    token: String!,
+    content: String!,
+    images: [String],
+  ): String
+
   Login(email: String!, password: String!): String
 }

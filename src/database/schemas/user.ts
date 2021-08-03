@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { postSchema } from "./post";
 
 export const userSchema = new mongoose.Schema({
     email: String,
@@ -7,6 +6,6 @@ export const userSchema = new mongoose.Schema({
     name: String,
     surname: String,
     password: String,
-    timestamp: String,
-    posts: [postSchema]
+    timestamp: Number,
+    posts: [String],
 })

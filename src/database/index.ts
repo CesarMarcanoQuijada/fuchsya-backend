@@ -7,7 +7,7 @@ export default async function initialize() {
     await mongoose.connect(db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: true,
+      useFindAndModify: false,
     });
     console.log("Database connected");
   } catch (error) {
